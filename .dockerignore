@@ -1,0 +1,10 @@
+.venv
+node_modules
+.git
+.env
+results
+experiments/results
+__pycache__
+*.pptx
+*.pdf
+SAFER_Interview_Files

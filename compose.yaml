@@ -1,0 +1,24 @@
+name: safer-local
+services:
+  simulator:
+    build:
+      context: .
+      target: base
+    command: ["--help"]
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    volumes:
+      - ./results:/results
+  tests:
+    profiles: [test]
+    build:
+      context: .
+      target: test
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    tmpfs:
+      - /tmp
